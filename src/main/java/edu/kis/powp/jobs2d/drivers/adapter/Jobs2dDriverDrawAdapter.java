@@ -10,9 +10,15 @@ import edu.kis.powp.jobs2d.Job2dDriver;
  */
 public class Jobs2dDriverDrawAdapter extends DrawPanelController implements Job2dDriver {
 	private int startX = 0, startY = 0;
+	private final ILine lineType;
 
 	public Jobs2dDriverDrawAdapter() {
 		super();
+		this.lineType = LineFactory.getBasicLine();
+	}
+
+	public Jobs2dDriverDrawAdapter(ILine lineType){
+		this.lineType=lineType;
 	}
 
 	@Override
@@ -23,7 +29,7 @@ public class Jobs2dDriverDrawAdapter extends DrawPanelController implements Job2
 
 	@Override
 	public void operateTo(int x, int y) {
-		ILine line = LineFactory.getBasicLine();
+		ILine line = lineType;
 		line.setStartCoordinates(this.startX, this.startY);
 		line.setEndCoordinates(x, y);
 		setPosition(x,y);
