@@ -8,14 +8,12 @@ import edu.kis.powp.jobs2d.command.DriverCommand;
 import edu.kis.powp.jobs2d.command.OperateToCommand;
 import edu.kis.powp.jobs2d.command.SetPositionCommand;
 import edu.kis.powp.jobs2d.drivers.DriverManager;
-import edu.kis.powp.jobs2d.drivers.adapter.Jobs2dDriverDrawAdapter;
 import edu.kis.powp.jobs2d.figures.Figures;
-import edu.kis.powp.jobs2d.magicpresets.FiguresJane;
 import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
 public class SelectTestFigureOptionListener implements ActionListener {
 
-	private DriverManager driverManager;
+	private final DriverManager driverManager;
 
 	public SelectTestFigureOptionListener(DriverManager driverManager) {
 		this.driverManager = driverManager;
@@ -68,7 +66,7 @@ public class SelectTestFigureOptionListener implements ActionListener {
 				new SetPositionCommand(-200, -200),
 				new OperateToCommand(200, -200),
 				new OperateToCommand(200, 200),
-				new OperateToCommand(200, -200),
+				new OperateToCommand(-200, 200),
 				new OperateToCommand(-200, -200)
 		};
 		for (DriverCommand command : commands) {

@@ -91,20 +91,18 @@ public class TestJobs2dPatterns {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				Application app = new Application("2d jobs Visio");
-				DrawerFeature.setupDrawerPlugin(app);
-				setupDefaultDrawerVisibilityManagement(app);
+		EventQueue.invokeLater(() -> {
+            Application app = new Application("2d jobs Visio");
+            DrawerFeature.setupDrawerPlugin(app);
+            setupDefaultDrawerVisibilityManagement(app);
 
-				DriverFeature.setupDriverPlugin(app);
-				setupDrivers(app);
-				setupPresetTests(app);
-				setupLogger(app);
+            DriverFeature.setupDriverPlugin(app);
+            setupDrivers(app);
+            setupPresetTests(app);
+            setupLogger(app);
 
-				app.setVisibility(true);
-			}
-		});
+            app.setVisibility(true);
+        });
 	}
 
 }
