@@ -14,6 +14,7 @@ import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
+import edu.kis.powp.jobs2d.figures.Figures;
 
 public class TestJobs2dPatterns {
 	private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -24,15 +25,14 @@ public class TestJobs2dPatterns {
 	 * @param application Application context.
 	 */
 	private static void setupPresetTests(Application application) {
-		SelectTestFigureOptionListener selectTest1FigureOptionListener = new SelectTestFigureOptionListener(
+		SelectTestFigureOptionListener selectTestFigureOptionListener = new SelectTestFigureOptionListener(
 				DriverFeature.getDriverManager());
 
-		application.addTest("Figure Joe 1", selectTest1FigureOptionListener);
-
-		SelectTestFigureOptionListener selectTest2FigureOptionListener = new SelectTestFigureOptionListener(
-				DriverFeature.getDriverManager());
-
-		application.addTest("Figure Joe 2", selectTest2FigureOptionListener);
+		application.addTest(Figures.FIG_JOE_1.getFigure(), selectTestFigureOptionListener);
+		application.addTest(Figures.FIG_JOE_2.getFigure(), selectTestFigureOptionListener);
+		application.addTest(Figures.FIG_CUSTOM.getFigure(), selectTestFigureOptionListener);
+		application.addTest(Figures.FIR_TRIANGLE.getFigure(), selectTestFigureOptionListener);
+		application.addTest(Figures.FIG_SQUARE.getFigure(), selectTestFigureOptionListener);
 
 	}
 
